@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-
+import plotly.express as px
+import numpy as np
 
 st.title("🎬 Movie Ratings Dashboard")
 
@@ -25,4 +26,13 @@ df3 = pd.read_csv(tags_file, encoding ='latin1')
     # ✅ Now safe to use df
     st.write("Sample of merged data:")
     st.dataframe(df.head())
+
+movie_counts = df['title'].value_counts().head(5)
+    fig1 = px.bar(
+        x=movie_counts.index,
+        y=movie_counts.values,
+        labels={'x': 'Movie Title', 'y': 'Count'},
+        title="Top 5 Most Frequent Movies"
+    )
+    st.plotly_chart(fig)
     
