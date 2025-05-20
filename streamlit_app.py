@@ -27,11 +27,4 @@ df['num_ratings'] = df.groupby('title')['rating'].transform('count')
 st.write("Sample of merged data:")
 st.dataframe(df.head())
 
-movie_counts = df['title'].value_counts().head(5)
-fig1 = px.bar(
-x=movie_counts.index,
-y=movie_counts.values,
-labels={'x': 'Movie Title', 'y': 'Count'},
-title="Top 5 Most Frequent Movies")
-st.plotly_chart(fig)
     
