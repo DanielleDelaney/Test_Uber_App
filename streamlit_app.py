@@ -12,8 +12,8 @@ df1 = pd.read_csv(movies_file, encoding ='latin1')
 df2 = pd.read_csv(ratings_file)
 df3 = pd.read_csv(tags_file, encoding ='latin1')
 
-df = pd.merge(df_movies, df_ratings, on='movieId')
-df = pd.merge(df, df_tags, on='movieId', how='left')
+df = pd.merge(df1, df2s, on='movieId')
+df = pd.merge(df, df3, on='movieId', how='left')
 df.drop_duplicates(inplace=True)
 
 # Create additional fields
